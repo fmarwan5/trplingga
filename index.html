@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Interaktif Lahan</title>
+    <meta name="description" content="Aplikasi peta interaktif untuk menampilkan data lahan berdasarkan tipe hak tanah">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/turf@3.0.14/turf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside id="sidebar" class="sidebar" role="complementary" aria-label="Panel kontrol peta">
+            <button id="toggleSidebar" class="toggle-button" 
+                    aria-label="Buka/tutup panel kontrol" 
+                    aria-expanded="true"
+                    title="Tekan untuk membuka/menutup panel kontrol">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="sidebar-content">
+                <header>
+                    <h1>Eksplorasi Peta Lahan</h1>
+                </header>
+                
+                <section class="filter-section">
+                    <h2>Filter Berdasarkan Tipe</h2>
+                    <div id="tipeHakFilter" class="checkbox-group" role="group" aria-label="Filter berdasarkan tipe hak">
+                        <!-- Checkboxes akan ditambahkan secara dinamis -->
+                    </div>
+                </section>
+                
+                <section class="layer-control">
+                    <h2>Layer Peta</h2>
+                    <select id="baseMapSelector" aria-label="Pilih layer peta dasar">
+                        <option value="osm">OpenStreetMap</option>
+                        <option value="satellite">Citra Satelit</option>
+                        <option value="esri">ESRI World Imagery</option>
+                    </select>
+                </section>
+                
+                <section class="legend">
+                    <h2>Legenda</h2>
+                    <div id="legendContent" role="img" aria-label="Legenda warna untuk tipe hak tanah">
+                        <!-- Item legenda akan ditambahkan secara dinamis -->
+                    </div>
+                </section>
+            </div>
+        </aside>
+        
+        <main id="map" role="main" aria-label="Peta interaktif lahan"></main>
+    </div>
+
+    <script src="appx.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fmarwan5/trplingga@main/app.js"></script>
+</body>
+</body>
+</html>
